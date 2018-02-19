@@ -30,12 +30,12 @@ __Server3__<br>
 
 Настроим маршрутизаторы. Привяжем интерфейсы маршрутизатора к конкретным сетям, для этого воспользуемся следующим набором команд.<br>
 ```
-Router>enable<br>
-Router#conf t<br>
-Router(config)#int fan/k /*где n/k - идентификатор необходимого интерфейса.<br>*/
-Router(config-if)#ip address 192.168.2.22 255.255.255.0 /* где вместо 192.168.2.22 255.255.255.0 необходимо поставить данные указаные в тз.<br>
-Router(config-if)#no shutdown <br>
-Router(config)#exit<br>
+Router>enable
+Router#conf t
+Router(config)#int fan/k /*где n/k - идентификатор необходимого интерфейса.*/
+Router(config-if)#ip address 192.168.2.22 255.255.255.0 /* где вместо 192.168.2.22 255.255.255.0 необходимо поставить данные указаные в тз.
+Router(config-if)#no shutdown
+Router(config)#exit
 Router(config)#wr mem
 ```
 Понятно что эту процедуру необходимо выполнить на всех маршрутизаторах для каждого интерфейса.<br>
@@ -44,14 +44,14 @@ Router(config)#wr mem
 
 Настроим протокол RIP на каждом из маршрутизаторов. Приведём пример на Router1
 ``` Router>enable 
-Router#conf t<br>
-Router(config)#router rip <br>
-Router(config-router)#network 192.168.1.0<br>
-Router(config-router)#network 192.168.10.0<br>
-Router(config-router)#network 10.12.1.0<br>
-Router(config-router)#exit<br>
-Router(config)#exit<br>
-Router#wr mem<br>
+Router#conf t
+Router(config)#router rip 
+Router(config-router)#network 192.168.1.0
+Router(config-router)#network 192.168.10.0
+Router(config-router)#network 10.12.1.0
+Router(config-router)#exit
+Router(config)#exit
+Router#wr mem
 ```
 
 ### 5. Посмотрим на результаты<br>
